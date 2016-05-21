@@ -49,4 +49,11 @@
     NSString *path = [NSString stringWithFormat:@"/uname2uid/%@", username];
     [UHClient request:path callback:callbackBlock];
 }
+
++(void) getBook: (NSString *) edition callback: (void (^)(id response, NSError *))callbackBlock {
+    NSString *path = [NSString stringWithFormat:@"/cpbook/%@", edition];
+    [UHClient request:path callback:callbackBlock];
+}
+
+
 @end

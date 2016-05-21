@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UHBooksChaptersTableViewController.H"
+#import "UHBooksChaptersTableViewController.h"
+#import "UHBooksChaptersTableViewController.h"
+#import "UHClient.h"
 
 @interface UHBooksTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSArray *books;

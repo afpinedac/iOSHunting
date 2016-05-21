@@ -1,28 +1,21 @@
 //
-//  UHBooksChaptersTableViewController.m
+//  UHTableViewControllerBooksChapterTopic.m
 //  UHunting
 //
-//  Created by Andres Pineda on 5/17/16.
+//  Created by Andres Pineda on 5/21/16.
 //  Copyright © 2016 AP. All rights reserved.
 //
 
-#import "UHBooksChaptersTableViewController.h"
+#import "UHTableViewControllerBooksChapterTopic.h"
 
-@interface UHBooksChaptersTableViewController ()
+@interface UHTableViewControllerBooksChapterTopic ()
 
 @end
 
-@implementation UHBooksChaptersTableViewController
+@implementation UHTableViewControllerBooksChapterTopic
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    [UHClient getBook:self.edition callback:^(id response, NSError *error) {
-        self.chapters = response;
-        [self.tableView reloadData];
-    }];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,24 +26,21 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [self.chapters count];
+#warning Incomplete implementation, return the number of rows
+    return [self.topics count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     UILabel *label = (UILabel *) [cell viewWithTag:1];
-    
-    label.text = self.chapters[indexPath.row][@"title"];
+    label.text = self.topics[indexPath.row][@"title"];
     
     return cell;
 }
@@ -91,17 +81,17 @@
 */
 
 
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    UHTableViewControllerBooksChapterTopic *bookChapterTopic = [segue destinationViewController];
-    bookChapterTopic.topics = self.chapters[path.row][@"arr"];
+    
+    UHTableViewControllerBooksChapterTopicsProblems *controller = [segue destinationViewController];
+    controller.problems = self.topics[(int) [path row]][@"arr"];
+    
     
 }
 

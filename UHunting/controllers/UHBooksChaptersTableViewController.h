@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UHClient.h"
+#import "UHTableViewControllerBooksChapterTopic.h"
 
 @interface UHBooksChaptersTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic) long edition;
+@property (nonatomic) NSString *edition;
+@property (strong, nonatomic) NSArray *chapters;
 
 @end

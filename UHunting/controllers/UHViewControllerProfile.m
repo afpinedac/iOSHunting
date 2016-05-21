@@ -1,27 +1,29 @@
 //
-//  UHBooksChaptersTableViewController.m
+//  UHViewControllerProfile.m
 //  UHunting
 //
-//  Created by Andres Pineda on 5/17/16.
+//  Created by Andres Pineda on 5/21/16.
 //  Copyright © 2016 AP. All rights reserved.
 //
 
-#import "UHBooksChaptersTableViewController.h"
+#import "UHViewControllerProfile.h"
+#import "SWRevealViewController.h"
 
-@interface UHBooksChaptersTableViewController ()
+@interface UHViewControllerProfile ()
 
 @end
 
-@implementation UHBooksChaptersTableViewController
+@implementation UHViewControllerProfile
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
     
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
     
-    [UHClient getBook:self.edition callback:^(id response, NSError *error) {
-        self.chapters = response;
-        [self.tableView reloadData];
-    }];
 
 }
 
@@ -33,28 +35,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [self.chapters count];
+#warning Incomplete implementation, return the number of rows
+    return 0;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    UILabel *label = (UILabel *) [cell viewWithTag:1];
-    
-    label.text = self.chapters[indexPath.row][@"title"];
+    // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -90,20 +88,14 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    
-    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    UHTableViewControllerBooksChapterTopic *bookChapterTopic = [segue destinationViewController];
-    bookChapterTopic.topics = self.chapters[path.row][@"arr"];
-    
 }
-
+*/
 
 @end

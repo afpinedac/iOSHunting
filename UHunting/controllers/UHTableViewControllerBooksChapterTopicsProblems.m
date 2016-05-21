@@ -1,28 +1,50 @@
 //
-//  UHBooksChaptersTableViewController.m
+//  UHTableViewControllerBooksChapterTopicsProblems.m
 //  UHunting
 //
-//  Created by Andres Pineda on 5/17/16.
+//  Created by Andres Pineda on 5/21/16.
 //  Copyright © 2016 AP. All rights reserved.
 //
 
-#import "UHBooksChaptersTableViewController.h"
+#import "UHTableViewControllerBooksChapterTopicsProblems.h"
 
-@interface UHBooksChaptersTableViewController ()
+@interface UHTableViewControllerBooksChapterTopicsProblems ()
+    @property NSMutableDictionary *data; //set of problems
+    @property NSArray *problemsSections;
 
 @end
 
-@implementation UHBooksChaptersTableViewController
+@implementation UHTableViewControllerBooksChapterTopicsProblems
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.data = [[NSMutableDictionary alloc] init];
+    self.problemsSections = [[NSArray alloc]init];
     
-    [UHClient getBook:self.edition callback:^(id response, NSError *error) {
-        self.chapters = response;
-        [self.tableView reloadData];
-    }];
+    //generate the data information
+    
+    for (int i = 0; i< [self.problems count]; i++) {
+        NSMutableArray * problemsList = [[NSMutableArray alloc] init];
+        for (int j =1; j<[self.problems[i] count]; j++) {
+            NSString *problemNumber = [NSString stringWithFormat:@"%@",[self.problems[i] objectAtIndex:j]];
+            [problemsList addObject: problemNumber];
+        }
+        [self.data setObject:problemsList forKey:self.problems[i][0]];
+    }
+    
+    
+    self.problemsSections = [[self.data allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    [self.tableView reloadData];
+    
+    
 
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,12 +56,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    return [[self.data allKeys] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return [self.chapters count];
+    NSString *sectionKey = self.problemsSections[section];
+    return [[self.data objectForKey:sectionKey] count];
 }
 
 
@@ -48,9 +70,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    UILabel *label = (UILabel *) [cell viewWithTag:1];
     
-    label.text = self.chapters[indexPath.row][@"title"];
+    NSString *sectionKey = self.problemsSections[indexPath.section];
+
+    UILabel* labelProblemName = (UILabel *) [cell viewWithTag:1];
+    labelProblemName.text = [[self.data objectForKey:sectionKey] objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -61,8 +85,8 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
-}
-*/
+}*/
+
 
 /*
 // Override to support editing the table view.
@@ -90,20 +114,27 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    
-    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-    UHTableViewControllerBooksChapterTopic *bookChapterTopic = [segue destinationViewController];
-    bookChapterTopic.topics = self.chapters[path.row][@"arr"];
-    
+}
+*/
+
+/*- (NSArray<NSString *> * _Nullable)sectionIndexTitlesForTableView:(UITableView * _Nonnull)tableView{
+    return self.problemsSections;
+}*/
+
+- (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section{
+    return self.problemsSections[section];
 }
 
+/*- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return [self.problemsSections indexOfObject:title];
+}*/
 
 @end

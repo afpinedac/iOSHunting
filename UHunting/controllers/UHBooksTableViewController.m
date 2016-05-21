@@ -54,13 +54,13 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UHBooksChaptersTableViewController *viewChapterBooks = [[UHBooksChaptersTableViewController alloc] init];
+/*    UHBooksChaptersTableViewController *viewChapterBooks = [[UHBooksChaptersTableViewController alloc] init];
     
     viewChapterBooks.edition = indexPath.row;
     
     [self presentViewController:viewChapterBooks animated:YES completion:NULL];
     
-    NSLog(@"selecciono %d", (int)indexPath.row);
+    NSLog(@"selecciono %d", (int)indexPath.row);*/
     
 
 }
@@ -100,14 +100,23 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+
+    
+    UHBooksChaptersTableViewController *viewChapters = [segue destinationViewController];
+    NSIndexPath *selectedOption = [self.tableView indexPathForSelectedRow];
+    
+    viewChapters.edition= [@(selectedOption.row + 1) stringValue];
+    
+    
 }
-*/
+
 
 @end

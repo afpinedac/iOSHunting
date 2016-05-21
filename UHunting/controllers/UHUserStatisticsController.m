@@ -7,6 +7,7 @@
 //
 
 #import "UHUserStatisticsController.h"
+#import "SWRevealViewController.h"
 
 @interface UHUserStatisticsController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
+    
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     
 //    self.labelUID.text = [self.uid stringValue];

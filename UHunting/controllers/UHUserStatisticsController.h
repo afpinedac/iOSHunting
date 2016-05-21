@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UHUserStatisticsController : UITableViewController
-@property (strong,nonatomic) NSNumber *uid;
-@property (weak, nonatomic) IBOutlet UILabel *labelUID;
+@interface UHUserStatisticsController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @end
