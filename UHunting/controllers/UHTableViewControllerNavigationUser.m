@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    menu = @[@"first" , @"second"];
+    menu = @[@"profile" , @"statistics", @"ranking", @"submissions"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +50,6 @@
     
     
     
-    
     return cell;
 }
 
@@ -60,15 +59,11 @@
     
     if([segue isKindOfClass:[SWRevealViewControllerSegueSetController class] ]){
 
-        UIViewController *dvc = [segue destinationViewController];        
-        
+        UIViewController *dvc = [segue destinationViewController];
         UINavigationController *navCtrl = (UINavigationController *) self.revealViewController.frontViewController;
-        
         [navCtrl setViewControllers:@[dvc] animated:NO];
-        
         [self.revealViewController setFrontViewPosition:FrontViewPositionLeft animated:YES];
     }
-    
     
 }
 

@@ -18,6 +18,8 @@
 		82B414231CF0C57D007EAA69 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B414221CF0C57D007EAA69 /* SWRevealViewController.m */; settings = {ASSET_TAGS = (); }; };
 		82B414261CF0C914007EAA69 /* UHViewControllerProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B414251CF0C914007EAA69 /* UHViewControllerProfile.m */; settings = {ASSET_TAGS = (); }; };
 		82B414291CF0D008007EAA69 /* UHTableViewControllerNavigationUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B414281CF0D008007EAA69 /* UHTableViewControllerNavigationUser.m */; settings = {ASSET_TAGS = (); }; };
+		82B4142D1CF11230007EAA69 /* UHTabBarControllerStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B4142C1CF11230007EAA69 /* UHTabBarControllerStatistics.m */; settings = {ASSET_TAGS = (); }; };
+		82B414391CF11F25007EAA69 /* UHTableViewControllerRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B414381CF11F25007EAA69 /* UHTableViewControllerRanking.m */; settings = {ASSET_TAGS = (); }; };
 		82DEE1CC1CE68D4600F15A7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DEE1CB1CE68D4600F15A7A /* main.m */; };
 		82DEE1CF1CE68D4600F15A7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DEE1CE1CE68D4600F15A7A /* AppDelegate.m */; };
 		82DEE1D21CE68D4600F15A7A /* UHLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DEE1D11CE68D4600F15A7A /* UHLoginController.m */; };
@@ -52,6 +54,10 @@
 		82B414251CF0C914007EAA69 /* UHViewControllerProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UHViewControllerProfile.m; path = controllers/UHViewControllerProfile.m; sourceTree = "<group>"; };
 		82B414271CF0D008007EAA69 /* UHTableViewControllerNavigationUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UHTableViewControllerNavigationUser.h; path = controllers/UHTableViewControllerNavigationUser.h; sourceTree = "<group>"; };
 		82B414281CF0D008007EAA69 /* UHTableViewControllerNavigationUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UHTableViewControllerNavigationUser.m; path = controllers/UHTableViewControllerNavigationUser.m; sourceTree = "<group>"; };
+		82B4142B1CF11230007EAA69 /* UHTabBarControllerStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UHTabBarControllerStatistics.h; path = controllers/UHTabBarControllerStatistics.h; sourceTree = "<group>"; };
+		82B4142C1CF11230007EAA69 /* UHTabBarControllerStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UHTabBarControllerStatistics.m; path = controllers/UHTabBarControllerStatistics.m; sourceTree = "<group>"; };
+		82B414371CF11F25007EAA69 /* UHTableViewControllerRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UHTableViewControllerRanking.h; path = controllers/UHTableViewControllerRanking.h; sourceTree = "<group>"; };
+		82B414381CF11F25007EAA69 /* UHTableViewControllerRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UHTableViewControllerRanking.m; path = controllers/UHTableViewControllerRanking.m; sourceTree = "<group>"; };
 		82DEE1C71CE68D4600F15A7A /* UHunting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UHunting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82DEE1CB1CE68D4600F15A7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82DEE1CD1CE68D4600F15A7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,9 +109,13 @@
 			isa = PBXGroup;
 			children = (
 				829114C21CE7779800832049 /* UHUserStatisticsController.h */,
+				82B4142B1CF11230007EAA69 /* UHTabBarControllerStatistics.h */,
+				82B4142C1CF11230007EAA69 /* UHTabBarControllerStatistics.m */,
 				829114C31CE7779800832049 /* UHUserStatisticsController.m */,
 				82B414241CF0C914007EAA69 /* UHViewControllerProfile.h */,
 				82B414251CF0C914007EAA69 /* UHViewControllerProfile.m */,
+				82B414371CF11F25007EAA69 /* UHTableViewControllerRanking.h */,
+				82B414381CF11F25007EAA69 /* UHTableViewControllerRanking.m */,
 			);
 			name = user;
 			sourceTree = "<group>";
@@ -343,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B414231CF0C57D007EAA69 /* SWRevealViewController.m in Sources */,
+				82B4142D1CF11230007EAA69 /* UHTabBarControllerStatistics.m in Sources */,
 				829114C01CE6AE4300832049 /* UHActivityIndicator.m in Sources */,
 				82940E301CEAEAA4008406AA /* UHBooksChaptersTableViewController.m in Sources */,
 				82940E2D1CEAEA70008406AA /* UHBooksTableViewController.m in Sources */,
@@ -350,6 +361,7 @@
 				827D49D51CE69BB40026BE60 /* UHClient.m in Sources */,
 				82B414261CF0C914007EAA69 /* UHViewControllerProfile.m in Sources */,
 				82B414111CF05403007EAA69 /* UHTableViewControllerBooksChapterTopic.m in Sources */,
+				82B414391CF11F25007EAA69 /* UHTableViewControllerRanking.m in Sources */,
 				82B4140E1CF0418A007EAA69 /* UIViewControllerTest.m in Sources */,
 				82DEE1CF1CE68D4600F15A7A /* AppDelegate.m in Sources */,
 				829114C41CE7779800832049 /* UHUserStatisticsController.m in Sources */,
