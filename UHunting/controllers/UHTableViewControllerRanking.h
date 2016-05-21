@@ -10,4 +10,10 @@
 
 @interface UHTableViewControllerRanking : UITableViewController<UITableViewDataSource, UITableViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+
+@property NSArray *ranking;
+
+
 @end

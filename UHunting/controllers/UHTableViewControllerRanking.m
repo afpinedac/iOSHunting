@@ -7,6 +7,7 @@
 //
 
 #import "UHTableViewControllerRanking.h"
+#import "SWRevealViewController.h"
 
 @interface UHTableViewControllerRanking ()
 
@@ -17,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.ranking = [[NSArray alloc]init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _barButton.target = self.revealViewController;
+    _barButton.action = @selector(revealToggle:);
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +33,41 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    
+    
+    UILabel *position = (UILabel *) [cell viewWithTag:1];
+    UILabel *name = (UILabel * ) [cell viewWithTag:2];
+    UILabel *accepteds = (UILabel * ) [cell viewWithTag:3];
+    
+    NSDictionary *rankingPosition = [self.ranking objectAtIndex:indexPath.row];
+    
+    
+    position.text = [rankingPosition objectForKey:@"rank"];
+    
+    name.text = [rankingPosition objectForKey:@"name"];
+    
+    accepteds.text = [rankingPosition objectForKey:@"ac"];
+    
+    
+    [cell addSubview:position];
+    [cell addSubview:name];
+    [cell addSubview:accepteds];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
