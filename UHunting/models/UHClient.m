@@ -56,4 +56,10 @@
 }
 
 
++(void) getLastSubmissions: (NSString *) lastSubID callback: (void (^)(id response, NSError *))callbackBlock{
+    NSString *path = [NSString stringWithFormat:@"/poll/%@", lastSubID];
+    [UHClient request:path callback:callbackBlock];
+}
+
+
 @end

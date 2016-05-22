@@ -40,8 +40,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellBook" forIndexPath:indexPath];
     
     UILabel *label = (UILabel * ) [cell viewWithTag:1];

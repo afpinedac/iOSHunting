@@ -16,4 +16,5 @@
 +(void) getSubmissions: (NSString *) id callback: (void (^)(id response, NSError * error))callbackBlock;
 +(void) isValidUser: (NSString *) username callback: (void (^)(id response, NSError * error))callbackBlock;
 +(void) getBook: (NSString *) edition callback: (void (^)(id response, NSError *))callbackBlock;
++(void) getLastSubmissions: (NSString *) lastSubID callback: (void (^)(id response, NSError *))callbackBlock;
 @end
